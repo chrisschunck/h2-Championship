@@ -10,7 +10,7 @@ public class PartidaDAO {
 
 	public Partida insert(Partida p) {
 		String sql = "INSERT INTO partida(time_a, time_b, gols_time_a, gols_time_b, resultado, cartoes_amarelos, cartoes_vermelhos, escanteios, quantidade_penalti, penalti_convertido) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		try (Connection conn = DBConnection.getInstance().getConnection(); PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			ps.setString(1, p.getTimeA());
 			ps.setString(2, p.getTimeB());
 			ps.setInt(3, p.getGolsTimeA());
@@ -34,7 +34,7 @@ public class PartidaDAO {
 	public List<Partida> listAll() {
 		String sql = "SELECT id, time_a, time_b, gols_time_a, gols_time_b, resultado, cartoes_amarelos, cartoes_vermelhos, escanteios, quantidade_penalti, penalti_convertido FROM partida";
 		List<Partida> list = new ArrayList<>();
-		try (Connection conn = DBConnection.getInstance().getConnection(); PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 			while (rs.next()) {
 				Partida p = new Partida();
 				p.setId(rs.getLong("id"));
@@ -59,7 +59,7 @@ public class PartidaDAO {
 
 	public void delete(long id) {
 		String sql = "DELETE FROM partida WHERE id = ?";
-		try (Connection conn = DBConnection.getInstance().getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
 			ps.setLong(1, id);
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -69,7 +69,7 @@ public class PartidaDAO {
 
 	public void update(Partida p) {
 		String sql = "UPDATE partida SET time_a=?, time_b=?, gols_time_a=?, gols_time_b=?, resultado=?, cartoes_amarelos=?, cartoes_vermelhos=?, escanteios=?, quantidade_penalti=?, penalti_convertido=? WHERE id=?";
-		try (Connection conn = DBConnection.getInstance().getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql)) {
 			ps.setString(1, p.getTimeA());
 			ps.setString(2, p.getTimeB());
 			ps.setInt(3, p.getGolsTimeA());
