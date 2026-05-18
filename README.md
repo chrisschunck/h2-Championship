@@ -1,10 +1,10 @@
-# ⚽ Campeonato
+# ⚽ ChampionShip
 
 Projeto desenvolvido com o objetivo de aplicar conceitos de arquitetura em camadas utilizando Java puro com banco de dados H2 embarcado, explorando DAO, Service e Model para operações CRUD via menu interativo no terminal.
 
 ---
 
-## 📌 Objetivo
+## 📌 Objective
 
 Gerenciar partidas de futebol de forma simples através de operações CRUD (Create, Read, Update, Delete). A aplicação permite:
 
@@ -16,7 +16,7 @@ Gerenciar partidas de futebol de forma simples através de operações CRUD (Cre
 
 ---
 
-## ⚙️ Tecnologias
+## ⚙️ Technologics
 
 - Java 17+
 - H2 Database (banco de dados embarcado, file-based)
@@ -26,7 +26,7 @@ Gerenciar partidas de futebol de forma simples através de operações CRUD (Cre
 
 ---
 
-## 🧠 Lógica de Negócio
+## 🧠 Bussiness Logic
 
 A lógica do sistema é baseada nos seguintes conceitos:
 
@@ -38,7 +38,7 @@ A lógica do sistema é baseada nos seguintes conceitos:
 
 O resultado da partida é calculado automaticamente ao registrar ou atualizar o placar:
 
-| Situação | Resultado |
+| Situation | Result |
 |---|---|
 | Gols Time A > Gols Time B | `VITORIA_TIME_A` |
 | Gols Time B > Gols Time A | `VITORIA_TIME_B` |
@@ -46,7 +46,7 @@ O resultado da partida é calculado automaticamente ao registrar ou atualizar o 
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Project Estrutury
 
 Campeonato/
 ├── src/main/java/
@@ -68,7 +68,7 @@ Campeonato/
 
 ---
 
-## ▶️ Execução
+## ▶️ Execution
 
 **Pré-requisitos:** Java 17+ e Maven instalados, ou IntelliJ IDEA.
 
@@ -89,7 +89,7 @@ java -jar target/Campeonato-1.0-SNAPSHOT.jar
 
 ---
 
-## 💡 Exemplo de Uso
+## 💡 Use Example
 
 ====== Menu Campeonato ======
 1 - Registrar partida
@@ -106,7 +106,7 @@ Partida registrada: Partida{id=1, timeA='Palmeiras', timeB='Santos', golsTimeA=2
 
 ---
 
-## 🗄️ Banco de Dados
+## 🗄️ Data Base
 
 O banco H2 é file-based e criado automaticamente na pasta `data/` ao rodar o projeto pela primeira vez. As tabelas são inicializadas automaticamente pelo `DBConnection`.
 
@@ -120,7 +120,7 @@ Acesse `http://localhost:8082` com a URL `jdbc:h2:./data/campeonato` e usuário 
 
 ---
 
-## 👨‍🏫 Avaliação
+## 👨‍🏫 Assessment
 
 Critérios atendidos:
 
@@ -131,3 +131,15 @@ Critérios atendidos:
 - Cálculo automático de resultado por placar
 - Modularização e boas práticas de código
 - Documentação clara
+
+---
+  
+## Future features
+
+- Iinterface de front
+- Spring Boot se possível
+- Banco de dados em nuvem (Oracle)
+- Testes Unitários
+- Loombok
+- Anotações
+- Comentários de código para documentação 
