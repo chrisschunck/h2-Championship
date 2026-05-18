@@ -6,10 +6,10 @@ public class Campeonato {
 
 	public Campeonato() {}
 
-	public Campeonato(String nome) { this.nomeCampeonato = nome; }
+	public Campeonato(String nomeCampeonato) { this.nomeCampeonato = nomeCampeonato; }
 
 	public Long getId() { return id; }
 	public void setId(Long id) { this.id = id; }
-	public String getNome() { return nomeCampeonato; }
-	public void setNome(String nome) { this.nomeCampeonato = nome; }
+	public String getNomeCampeonato() { return nomeCampeonato; }
+	public void setNomeCampeonato(String nomeCampeonato) { this.nomeCampeonato = nomeCampeonato; }
 }
