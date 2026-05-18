@@ -1,4 +1,4 @@
-# ⚽ ChampionShip
+# ⚽ Championship
 
 Projeto desenvolvido com o objetivo de aplicar conceitos de arquitetura em camadas utilizando Java puro com banco de dados H2 embarcado, explorando DAO, Service e Model para operações CRUD via menu interativo no terminal.
 
