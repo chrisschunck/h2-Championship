@@ -136,7 +136,7 @@ Critérios atendidos:
   
 ## Future features
 
-- Iinterface de front
+- Interface de front
 - Spring Boot se possível
 - Banco de dados em nuvem (Oracle)
 - Testes Unitários
