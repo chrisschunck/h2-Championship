@@ -59,9 +59,9 @@ public class DBConnection {
                 "penalti_convertido BOOLEAN" +
                 ")";
 
-        try (Statement stmt = connection.createStatement()) {
-            stmt.execute(createCampeonato);
-            stmt.execute(createPartida);
+        try (Statement statement = connection.createStatement()) {
+            statement.execute(createCampeonato);
+            statement.execute(createPartida);
         }
     }
 
