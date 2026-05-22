@@ -49,26 +49,26 @@ public class Main {
                         System.out.print("Gols Time B: ");
                         int golsB = Integer.parseInt(scanner.nextLine());
                         System.out.print("Cartões amarelos: ");
-                        int cartoesAm = Integer.parseInt(scanner.nextLine());
+                        int cartoesAmarelos = Integer.parseInt(scanner.nextLine());
                         System.out.print("Cartões vermelhos: ");
-                        int cartoesVerm = Integer.parseInt(scanner.nextLine());
+                        int cartoesVermelhos = Integer.parseInt(scanner.nextLine());
                         System.out.print("Escanteios: ");
                         int escanteios = Integer.parseInt(scanner.nextLine());
                         System.out.print("Quantidade de pênaltis: ");
-                        int qtdPenalti = Integer.parseInt(scanner.nextLine());
+                        int quantidadePenalti = Integer.parseInt(scanner.nextLine());
                         System.out.print("Pênalti convertido? (s/n): ");
-                        boolean penaltiConv = scanner.nextLine().trim().equalsIgnoreCase("s");
+                        boolean penaltiConvertido = scanner.nextLine().trim().equalsIgnoreCase("s");
 
-                        Partida p = new Partida(timeA, timeB, golsA, golsB);
-                        p.setCartoesAmarelos(cartoesAm);
-                        p.setCartoesVermelhos(cartoesVerm);
-                        p.setEscanteios(escanteios);
-                        p.setQuantidadePenalti(qtdPenalti);
-                        p.setPenaltiConvertido(penaltiConv);
+                        Partida partida = new Partida(timeA, timeB, golsA, golsB);
+                        partida.setCartoesAmarelos(cartoesAmarelos);
+                        partida.setCartoesVermelhos(cartoesVermelhos);
+                        partida.setEscanteios(escanteios);
+                        partida.setQuantidadePenalti(quantidadePenalti);
+                        partida.setPenaltiConvertido(penaltiConvertido);
 
-                        service.registrarPartida(p);
+                        service.registrarPartida(partida);
                         System.out.println("✓ Partida registrada com sucesso!");
-                        System.out.println("  Resultado: " + p.getResultado());
+                        System.out.println("  Resultado: " + partida.getResultado());
                     }
                     case 2 -> {
                         List<Partida> partidas = service.listarPartidas();
@@ -76,12 +76,12 @@ public class Main {
                             System.out.println("Nenhuma partida registrada.");
                         } else {
                             System.out.println("\n========== PARTIDAS REGISTRADAS ==========");
-                            for (Partida part : partidas) {
-                                System.out.println("\nID: " + part.getId());
-                                System.out.println("  " + part.getTimeA() + " " + part.getGolsTimeA() + " x " + part.getGolsTimeB() + " " + part.getTimeB());
-                                System.out.println("  Resultado: " + part.getResultado());
-                                System.out.println("  Cartões: " + part.getCartoesAmarelos() + " 🟨 | " + part.getCartoesVermelhos() + " 🟥");
-                                System.out.println("  Escanteios: " + part.getEscanteios() + " | Pênaltis: " + part.getQuantidadePenalti() + (part.isPenaltiConvertido() ? " ✓" : " ✗"));
+                            for (Partida partida : partidas) {
+                                System.out.println("\nID: " + partida.getId());
+                                System.out.println("  " + partida.getTimeA() + " " + part.getGolsTimeA() + " x " + partida.getGolsTimeB() + " " + partida.getTimeB());
+                                System.out.println("  Resultado: " + partida.getResultado());
+                                System.out.println("  Cartões: " + partida.getCartoesAmarelos() + " 🟨 | " + partida.getCartoesVermelhos() + " 🟥");
+                                System.out.println("  Escanteios: " + partida.getEscanteios() + " | Pênaltis: " + partida.getQuantidadePenalti() + (partida.isPenaltiConvertido() ? " ✓" : " ✗"));
                             }
                             System.out.println("\n=========================================");
                         }
@@ -94,27 +94,27 @@ public class Main {
                         System.out.print("Gols Time B: ");
                         int golsB = Integer.parseInt(scanner.nextLine());
                         System.out.print("Cartões amarelos: ");
-                        int cartoesAm = Integer.parseInt(scanner.nextLine());
+                        int cartoesAmarelos = Integer.parseInt(scanner.nextLine());
                         System.out.print("Cartões vermelhos: ");
-                        int cartoesVerm = Integer.parseInt(scanner.nextLine());
+                        int cartoesVermelhos = Integer.parseInt(scanner.nextLine());
                         System.out.print("Escanteios: ");
                         int escanteios = Integer.parseInt(scanner.nextLine());
                         System.out.print("Quantidade de pênaltis: ");
-                        int qtdPenalti = Integer.parseInt(scanner.nextLine());
+                        int quantidadePenalti = Integer.parseInt(scanner.nextLine());
                         System.out.print("Pênalti convertido? (s/n): ");
-                        boolean penaltiConv = scanner.nextLine().trim().equalsIgnoreCase("s");
+                        boolean penaltiConvertido = scanner.nextLine().trim().equalsIgnoreCase("s");
 
-                        Partida p = new Partida();
-                        p.setId(id);
-                        p.setGolsTimeA(golsA);
-                        p.setGolsTimeB(golsB);
-                        p.setCartoesAmarelos(cartoesAm);
-                        p.setCartoesVermelhos(cartoesVerm);
-                        p.setEscanteios(escanteios);
-                        p.setQuantidadePenalti(qtdPenalti);
-                        p.setPenaltiConvertido(penaltiConv);
+                        Partida partida = new Partida();
+                        partida.setId(id);
+                        partida.setGolsTimeA(golsA);
+                        partida.setGolsTimeB(golsB);
+                        partida.setCartoesAmarelos(cartoesAmarelos);
+                        partida.setCartoesVermelhos(cartoesVermelhos);
+                        partida.setEscanteios(escanteios);
+                        partida.setQuantidadePenalti(quantidadePenalti);
+                        partida.setPenaltiConvertido(penaltiConvertido);
 
-                        service.atualizarPartida(p);
+                        service.atualizarPartida(partida);
                         System.out.println("✓ Partida atualizada com sucesso!");
                     }
                     case 4 -> {
