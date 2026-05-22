@@ -8,13 +8,13 @@ import java.util.List;
 
 public class CampeonatoDAO {
 
-	public Campeonato insert(Campeonato c) {
+	public Campeonato insert(Campeonato campeonato) {
 		String sql = "INSERT INTO campeonato(nome) VALUES (?)";
-		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-			ps.setString(1, c.getNome());
-			ps.executeUpdate();
-			try (ResultSet rs = ps.getGeneratedKeys()) {
-				if (rs.next()) c.setId(rs.getLong(1));
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement preparedstatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			preparedstatement.setString(1, campeonato.getNome());
+			preparedstatement.executeUpdate();
+			try (ResultSet resultset = preparedstatement.getGeneratedKeys()) {
+				if (resultset.next()) campeonato.setId(resultset.getLong(1));
 			}
 			return c;
 		} catch (SQLException e) {
@@ -25,12 +25,12 @@ public class CampeonatoDAO {
 	public List<Campeonato> listAll() {
 		String sql = "SELECT id, nome FROM campeonato";
 		List<Campeonato> list = new ArrayList<>();
-		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-			while (rs.next()) {
-				Campeonato c = new Campeonato();
-				c.setId(rs.getLong("id"));
-				c.setNome(rs.getString("nome"));
-				list.add(c);
+		try (Connection connection = DBConnection.getInstance().getConnection(); PreparedStatement preparedstatement = connection.prepareStatement(sql); ResultSet resultset = preparedstatement.executeQuery()) {
+			while (resultset.next()) {
+				Campeonato campeonato = new Campeonato();
+				campeonato.setId(resultset.getLong("id"));
+				campeonato.setNome(resultset.getString("nome"));
+				list.add(campeonato);
 			}
 			return list;
 		} catch (SQLException e) {
