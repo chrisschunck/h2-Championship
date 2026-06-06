@@ -18,10 +18,11 @@ public class Main {
         int opcao = -1;
         do {
             System.out.println("====== Menu Campeonato ======");
-            System.out.println("1 - Registrar partida");
-            System.out.println("2 - Listar partidas");
-            System.out.println("3 - Atualizar partida");
-            System.out.println("4 - Deletar partida");
+            System.out.println("1 - Registrar Jogador");
+            System.out.println("2 - Registrar Partida");
+            System.out.println("3 - Listar Partidas");
+            System.out.println("4 - Atualizar Partida");
+            System.out.println("5 - Deletar Partida");
             System.out.println("0 - Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -40,6 +41,33 @@ public class Main {
             try {
                 switch (opcao) {
                     case 1 -> {
+                        System.out.print("Nome jogador: ");
+                        String nome = scanner.nextLine();
+                        System.out.print("Idade jogador: ");
+                        int idade = scanner.nextInt();
+                        System.out.print("Posição jogador: ");
+                        String posicao = scanner.nextLine();
+                        System.out.print("Salário jogador: ");
+                        double salario = scanner.nextDouble();
+                        System.out.print("Email jogador: ");
+                        String email = scanner.nextLine();
+                        System.out.print("Altura jogador: ");
+                        double altura = scanner.nextDouble();
+                        System.out.print("Peso jogador: ")
+                        int peso = scanner.nextInt();
+                        System.out.print("Status jogador: ");
+                        boolean status = scanner.nextBoolean();
+                        System.out.print("Time atual jogador: ");
+                        Time time = scanner.nextLine();
+
+                        Jogador jogador = new Jogador(nome, idade, posicao, salario, email, altura, peso);
+                        jogador.setStatus(status);
+                        jogador.setTime(time);
+
+                        jogador.registarJogador(jogador);
+                        System.out.println("Jogador: " + jogador.getNome() + " registrado");
+                    }
+                    case 2 -> {
                         System.out.print("Time A: ");
                         String timeA = scanner.nextLine();
                         System.out.print("Time B: ");
@@ -70,7 +98,7 @@ public class Main {
                         System.out.println("✓ Partida registrada com sucesso!");
                         System.out.println("  Resultado: " + partida.getResultado());
                     }
-                    case 2 -> {
+                    case 3 -> {
                         List<Partida> partidas = service.listarPartidas();
                         if (partidas.isEmpty()) {
                             System.out.println("Nenhuma partida registrada.");
@@ -86,7 +114,7 @@ public class Main {
                             System.out.println("\n=========================================");
                         }
                     }
-                    case 3 -> {
+                    case 4 -> {
                         System.out.print("Id da partida a atualizar: ");
                         long id = Long.parseLong(scanner.nextLine());
                         System.out.print("Gols Time A: ");
@@ -117,7 +145,7 @@ public class Main {
                         service.atualizarPartida(partida);
                         System.out.println("✓ Partida atualizada com sucesso!");
                     }
-                    case 4 -> {
+                    case 5 -> {
                         System.out.print("Id da partida a deletar: ");
                         long id = Long.parseLong(scanner.nextLine());
                         service.deletarPartida(id);
