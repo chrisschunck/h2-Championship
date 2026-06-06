@@ -1,5 +1,6 @@
 import model.Partida;
 import service.PartidaService;
+import service.JogadorService;
 
 import java.util.List;
 import java.util.Scanner;
